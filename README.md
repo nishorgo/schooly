@@ -1,26 +1,88 @@
-# Lama Dev School Management Dashboard
+# School Management System
+
+This project is a comprehensive School Management System designed to streamline administrative tasks, enhance communication, and improve overall efficiency in educational institutions.
+
+## Features
+
+- User Management (Admin, Teachers, Students, Parents)
+- Dashboard with key metrics and notifications
+- Class and Grade Management
+- Subject and Lesson Scheduling
+- Attendance Tracking
+- Exam and Assignment Management
+- Result Recording and Reporting
+- Event Planning and Announcements
+- Parent-Teacher Communication
+
+## Screenshots
+
+![Dashboard](demo/1.png)
+*Dashboard view showing key metrics and notifications*
+
+![Class Schedule](demo/2.png)
+*Weekly class schedule for students and teachers*
+
+![Teachers List (Other entities have the same view)](demo/3.png)
+*List view of Entities*
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js
+- Next.js
+- PostgreSQL
+- Prisma CLI
+- Clerk Authentication
+- Cloudinary
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```
+   git clone https://github.com/nishorgo/schooly.git
+   ```
 
-## Learn More
+2. Install dependencies:
+   ```
+   cd school-management-system
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Set up the database:
+   ```
+   npx prisma migrate dev
+   ```
 
-- [Lama Dev Youtube Channel](https://youtube.com/lamadev) 
-- [Next.js](https://nextjs.org/learn)
+4. Seed the database:
+   ```
+   npx prisma db seed
+   ```
+
+5. Start the development server:
+   ```
+   npm run dev
+   ```
+
+## Technologies Used
+
+- Next.js
+- Prisma ORM
+- PostgreSQL
+- TypeScript
+- React
+- Tailwind CSS
+- Clerk Authentication
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to all contributors who have helped shape this project.
+- Special thanks to the open-source community for providing excellent tools and libraries.
