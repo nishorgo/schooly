@@ -7,7 +7,7 @@ import { Class, Prisma, Subject, Teacher } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import { ITEM_PER_PAGE } from "@/lib/settings";
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 
 type TeacherList = Teacher & { subjects: Subject[] } & { classes: Class[] };
 
@@ -16,8 +16,8 @@ const TeacherListPage = async ({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) => {
-  const { sessionClaims } = auth();
-  const role = (sessionClaims?.metadata as { role?: string })?.role;
+  const user = await currentUser();
+  const role = user?.publicMetadata?.role as string;
   const columns = [
     {
       header: "Info",
@@ -87,7 +87,7 @@ const TeacherListPage = async ({
       <td className="hidden md:table-cell">{item.address}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/list/teachers/${item.id}`}>
+          <Link href={`/dashboard/list/teachers/${item.id}`}>
             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-schoolySky">
               <Image src="/view.png" alt="" width={16} height={16} />
             </button>
